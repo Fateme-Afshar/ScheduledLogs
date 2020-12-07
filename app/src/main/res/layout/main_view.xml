@@ -5,41 +5,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     >
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.scheduledlogs.viewModel.RandNameViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".view.activity.MainActivity">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/start_schedule"
+            android:id="@+id/btn_start_schedule"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:padding="2dp"
             android:text="@string/start_schedule"
             android:textAllCaps="false"
+            android:onClick="@{()->viewModel.setOnStartBtnListener()}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/stop_schedule"
+            android:id="@+id/btn_stop_schedule"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:padding="2dp"
             android:text="@string/stop_schedule"
             android:textAllCaps="false"
+            android:onClick="@{()->viewModel.setOnStopBtnListener()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/tv_logs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/start_schedule" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_start_schedule"
+            android:scrollbars = "vertical"
+            tools:text="@string/stop_schedule"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
